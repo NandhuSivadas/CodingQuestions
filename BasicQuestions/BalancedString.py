@@ -5,17 +5,22 @@
 # Explanation:
 # s can be split into RL, RRLL, RL, RL, each substring contains the same number of ‘L’ and ‘R
 
-s="RLRRLLRLRL"
-
+s="RRLRRLLRLRL"
 def bal(s):
-    r,c=0,0
+    countL = 0
+    countR = 0
+    result = 0
     for i in s:
-        if i=='R':
-            c+=1
+        if i == 'L':
+            countL += 1
         else:
-            c-=1
-            if c==0:
-                r+=1
-    return r
-    
+            countR += 1
+        if countR == countL:
+            result += 1
+    return result     
+
 print(bal(s))
+
+
+
+
